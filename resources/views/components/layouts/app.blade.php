@@ -10,8 +10,19 @@
     <title>{{ $title ?? 'Page Title' }}</title>
 </head>
 
-<body class="h-screen flex justify-center items-center">
-    @livewire('registration')
+<body>
+    {{-- <div class="h-screen flex justify-center items-center">
+        @livewire('registration')
+    </div> --}}
+
+    <div class="grid grid-cols-5 gap-5 mt-12 mx-6">
+        <div class="lg:col-span-2 col-span-5">
+            @livewire('posts.create')
+        </div>
+        <div class="lg:col-span-3 col-span-5">
+            @livewire('posts.index')
+        </div>
+    </div>
 </body>
 
 </html>
