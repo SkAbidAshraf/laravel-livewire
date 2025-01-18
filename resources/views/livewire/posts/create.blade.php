@@ -1,8 +1,8 @@
 <div class="rounded border border-black max-w-xl w-full bg-white mx-auto">
     <div class="border-b border-black mb-4 py-3 text-center">
         <h1 class="text-xl">Create post</h1>
-        @if (session('successMessage'))
-            <p class="text-green-600 text-sm">{{ session('successMessage') }}</p>
+        @if (session('success'))
+            <p class="text-green-600 text-sm">{{ session('success') }}</p>
         @endif
     </div>
 
@@ -23,16 +23,16 @@
 
         <div class="mb-4 grid grid-cols-12">
             <div class="col-span-3">
-                <label for="image" class="text-sm">Thumbnail:</label>
+                <label for="thumbnail" class="text-sm">Thumbnail:</label>
             </div>
             <div class="col-span-9">
-                <input wire:model='image' type="file" id="image" name="image"
+                <input wire:model='thumbnail' type="file" id="thumbnail" name="thumbnail"
                     accept="image/png, image/jpg"
                     class="text-sm w-full border border-black p-1 rounded focus:outline-none focus:ring-1 focus:ring-black">
 
-                {{-- @if ($image)
+                @if ($thumbnail)
                     <div class="relative w-20 h-20 mt-2 border rounded">
-                        <img src="{{ $image->temporaryUrl() }}" alt="profile picture"
+                        <img src="{{ $thumbnail->temporaryUrl() }}" alt="profile picture"
                             class="w-full h-full rounded-sm object-cover">
                         <button type="button" wire:click='removeImage'
                             class="absolute top-0 right-0 bg-gray-100 m-0 text-white rounded-full size-4 flex items-center justify-center text-xs transform translate-x-1 -translate-y-1 hover:bg-gray-200">
@@ -44,9 +44,9 @@
                             </svg>
                         </button>
                     </div>
-                @endif --}}
+                @endif
 
-                <div class="flex" wire:loading.delay.long wire:terget='image'>
+                <div class="flex" wire:loading.delay.long wire:terget='thumbnail'>
                     <div class="w-20 h-20 mt-2 flex flex-col justify-around bg-gray-50 border rounded">
                         <div
                             class="border-gray-300 mx-auto align-middle h-10 w-10 animate-spin rounded-full border-4 border-t-blue-600">
@@ -54,7 +54,7 @@
                     </div>
                 </div>
 
-                @error('image')
+                @error('thumbnail')
                     <p class="text-red-600 text-sm">{{ $message }}</p>
                 @enderror
             </div>
