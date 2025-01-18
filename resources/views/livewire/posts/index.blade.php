@@ -1,4 +1,4 @@
-<div class="rounded border border-black w-full bg-white mx-auto">
+<div wire:poll.keep-alive class="rounded border border-black w-full bg-white mx-auto">
     <div class="border-b border-black py-3 text-center">
         <h1 class="text-xl">All Posts</h1>
         @if (session('message'))
@@ -24,7 +24,7 @@
                     <td class="p-1 border-r border-black align-top">{{ Str::limit($post->content, 100) }}</td>
                     <td class="p-1 border-r border-black align-top">
                         <div class="relative w-20 h-20 border rounded">
-                            <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="thumbnail"
+                            <img src="{{ asset( 'storage/'.$post->thumbnail) }}" alt="thumbnail"
                                 class="w-full h-full rounded-sm object-cover">
                         </div>
                     </td>
@@ -44,6 +44,6 @@
     </table>
 
     <div class="p-1 min-h-5">
-        {{ $posts->links('pagination::custom-pagination') }}
+        {{ $posts->links() }}
     </div>
 </div>

@@ -20,7 +20,7 @@
             @livewire('posts.create')
         </div>
         <div class="lg:col-span-3 col-span-5">
-            @livewire('posts.index')
+            @livewire('posts.index', ['lazy' => true])
         </div>
     </div>
 </body>
