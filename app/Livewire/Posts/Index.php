@@ -11,6 +11,8 @@ class Index extends Component
 {
     use WithPagination;
 
+    public $search='';
+
     public function delete($postId)
     {
         try {
@@ -22,11 +24,13 @@ class Index extends Component
         }
     }
 
-    #[On('post-created')]
+    // #[On('post-created')]
     public function render()
     {
+        $posts = Post::latest()->where('title', 'like', "%{$this->search}%")->paginate(5);
         return view('livewire.posts.index', [
-            'posts' => Post::latest()->paginate(2)
+            'posts' => $posts,
+            'postCount' =>$posts->count()
         ]);
     }
 }
