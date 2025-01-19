@@ -3,6 +3,7 @@
 namespace App\Livewire\Posts;
 
 use App\Models\Post;
+use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -11,9 +12,10 @@ class Index extends Component
 {
     use WithPagination;
 
-    public $search='';
+    public $search = '';
 
-    public function mount($search){
+    public function mount($search)
+    {
         $this->search = $search;
     }
 
@@ -28,13 +30,17 @@ class Index extends Component
         }
     }
 
-    // #[On('post-created')]
+    #[Computed()]
+    public function posts()
+    {
+        return Post::latest()
+            ->where('title', 'like', "%{$this->search}%")
+            ->paginate(5);
+    }
+
+    #[On('post-created')]
     public function render()
     {
-        $posts = Post::latest()->where('title', 'like', "%{$this->search}%")->paginate(5);
-        return view('livewire.posts.index', [
-            'posts' => $posts,
-            'postCount' =>$posts->count()
-        ]);
+        return view('livewire.posts.index', []);
     }
 }

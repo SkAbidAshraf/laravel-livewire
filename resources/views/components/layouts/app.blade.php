@@ -20,7 +20,7 @@
             @livewire('posts.create')
         </div>
         <div class="col-span-5 lg:col-span-3">
-            <livewire:posts.index search='test' />
+            <livewire:posts.index search='' />
         </div>
     </div>
 </body>

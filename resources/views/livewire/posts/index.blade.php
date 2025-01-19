@@ -26,7 +26,7 @@
         </thead>
 
         <tbody>
-            @forelse ($posts as $post)
+            @forelse ($this->posts as $post)
                 <tr class="border-b border-black">
                     <td class="p-1 align-top border-r border-black">{{ $post->id }}</td>
                     <td class="p-1 align-top border-r border-black">{{ $post->title }}</td>
@@ -64,6 +64,6 @@
     </table>
 
     <div class="p-1 min-h-5">
-        {{ $posts->links() }}
+        {{ $this->posts->links() }}
     </div>
 </div>
