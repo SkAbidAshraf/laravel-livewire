@@ -11,16 +11,16 @@
 </head>
 
 <body>
-    {{-- <div class="h-screen flex justify-center items-center">
+    {{-- <div class="flex items-center justify-center h-screen">
         @livewire('registration')
     </div> --}}
 
-    <div class="grid grid-cols-5 gap-5 my-12 mx-6">
-        <div class="lg:col-span-2 col-span-5">
+    <div class="grid grid-cols-5 gap-5 mx-6 my-12">
+        <div class="col-span-5 lg:col-span-2">
             @livewire('posts.create')
         </div>
-        <div class="lg:col-span-3 col-span-5">
-            @livewire('posts.index')
+        <div class="col-span-5 lg:col-span-3">
+            <livewire:posts.index search='test' />
         </div>
     </div>
 </body>

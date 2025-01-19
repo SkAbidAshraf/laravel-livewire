@@ -13,6 +13,10 @@ class Index extends Component
 
     public $search='';
 
+    public function mount($search){
+        $this->search = $search;
+    }
+
     public function delete($postId)
     {
         try {
