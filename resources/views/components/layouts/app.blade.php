@@ -7,22 +7,11 @@
 
     @vite('resources/css/app.css')
 
-    <title>{{ $title ?? 'Page Title' }}</title>
+    <title>{{ $title . ' - laravel/livewire practice' ?? 'Page Title' }}</title>
 </head>
 
-<body>
-    {{-- <div class="flex items-center justify-center h-screen">
-        @livewire('registration')
-    </div> --}}
-
-    <div class="grid grid-cols-5 gap-5 mx-6 my-12">
-        <div class="col-span-5 lg:col-span-2">
-            @livewire('posts.create')
-        </div>
-        <div class="col-span-5 lg:col-span-3">
-            <livewire:posts.index search='' />
-        </div>
-    </div>
+<body class="bg-slate-100 my-10">
+    {{ $slot }}
 </body>
 
 </html>

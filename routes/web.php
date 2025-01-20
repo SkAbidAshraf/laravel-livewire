@@ -1,7 +1,7 @@
 <?php
 
+use App\Livewire\Users;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('components.layouts.app');
-});
+Route::get('/', Users::class);
+

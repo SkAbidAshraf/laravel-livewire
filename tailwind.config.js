@@ -12,12 +12,12 @@ export default {
     darkMode: 'false',
     theme: {
         extend: {
-            // fontFamily: {
-            //     sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-            // },
             fontFamily: {
-                sans: ['"Times New Roman"', 'Times', 'serif'],
+                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            // fontFamily: {
+            //     sans: ['"Times New Roman"', 'Times', 'serif'],
+            // },
         },
     },
     plugins: [],

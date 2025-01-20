@@ -4,9 +4,11 @@ namespace App\Livewire\Posts;
 
 use App\Models\Post;
 use Livewire\Attributes\Rule;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
+#[Title('Posts')]
 class Create extends Component
 {
     use WithFileUploads;
@@ -33,6 +35,7 @@ class Create extends Component
 
         $this->dispatch('post-created', $post);
     }
+    
     public function render()
     {
         sleep(2);

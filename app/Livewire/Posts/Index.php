@@ -41,6 +41,8 @@ class Index extends Component
     #[On('post-created')]
     public function render()
     {
-        return view('livewire.posts.index', []);
+        return view('livewire.posts.index', [
+            'posts' => $this->posts()
+        ]);
     }
 }
